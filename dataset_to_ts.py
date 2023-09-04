@@ -20,8 +20,8 @@ def to_ts_notation(item):
         tokens_new.insert(0, " ")
     tokens_new.pop(0) # we added an extra space at the beginning, we remove it now
     ner_tags_new.pop(0)
-    item["tokens_ts"] = tokens_new
-    item["ner_tags_ts"] = ner_tags_new
+    item["tokens"] = tokens_new
+    item["ner_tags"] = ner_tags_new
     return item
     
 dataset = load_dataset("wnut_17")
@@ -31,11 +31,9 @@ updated_dataset_val = dataset["validation"].map(to_ts_notation)
 updated_dataset_test = dataset["test"].map(to_ts_notation)
 
 
-sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens"], updated_dataset_train[0]["ner_tags"])]
-sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens_ts"], updated_dataset_train[0]["ner_tags_ts"])]
+#sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens"], updated_dataset_train[0]["ner_tags"])]
+#sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens_ts"], updated_dataset_train[0]["ner_tags_ts"])]
 
-print(sentence1)
-print(sentence2)
 
 updated_dataset_train.to_csv("wnut_17_ts_train.csv")
 updated_dataset_val.to_csv("wnut_17_ts_val.csv")
