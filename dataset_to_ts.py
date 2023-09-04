@@ -32,7 +32,6 @@ label2id = {
 }
 
 def to_ts_notation(item):
-    print("hola")
     tokens_new = []
     ner_tags_new = []
     for token, tag in zip(reversed(item["tokens"]), reversed(item["ner_tags"])):
@@ -62,6 +61,8 @@ dataset_val = load_dataset("wnut_17", split="validation")
 dataset_test = load_dataset("wnut_17", split="test")
     
 updated_dataset_train = dataset_train.map(to_ts_notation)
+print(updated_dataset_train[0])
+
 updated_dataset_val = dataset_val.map(to_ts_notation)
 updated_dataset_test = dataset_test.map(to_ts_notation)
 
