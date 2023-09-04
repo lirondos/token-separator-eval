@@ -28,7 +28,6 @@ dataset = load_dataset("wnut_17", split="train")
     
 updated_dataset = dataset.map(to_ts_notation)
 
-for i in dataset[:10]:
-    print(dataset[i])
+print(updated_dataset[0])
 
 
