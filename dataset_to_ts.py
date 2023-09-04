@@ -3,7 +3,7 @@ from datasets import load_dataset
 def to_ts_notation(item):
     tokens_new = []
     ner_tags_new = []
-    for token, tag in zip(reversed(tokens), reversed(ner_tags)):
+    for token, tag in zip(reversed(item["tokens"]), reversed(item["ner_tags"])):
         if tag==0:
             ner_tags_new.insert(0, tag)
             tokens_new.insert(0, token)
