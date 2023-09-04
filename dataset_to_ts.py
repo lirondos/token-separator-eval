@@ -56,11 +56,13 @@ def to_ts_notation(item):
     print(item)
     return item
     
-dataset = load_dataset("wnut_17")
+dataset_train = load_dataset("wnut_17", split="train")
+dataset_val = load_dataset("wnut_17", split="validation")
+dataset_test = load_dataset("wnut_17", split="test")
     
-updated_dataset_train = dataset["train"].map(to_ts_notation)
-updated_dataset_val = dataset["validation"].map(to_ts_notation)
-updated_dataset_test = dataset["test"].map(to_ts_notation)
+updated_dataset_train = dataset_train.map(to_ts_notation)
+updated_dataset_val = dataset_val.map(to_ts_notation)
+updated_dataset_test = dataset_test.map(to_ts_notation)
 
 
 sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens"], updated_dataset_train[0]["ner_tags"])]
