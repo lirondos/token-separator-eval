@@ -35,9 +35,9 @@ updated_dataset_test = dataset["test"].map(to_ts_notation)
 #sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens_ts"], updated_dataset_train[0]["ner_tags_ts"])]
 
 
-updated_dataset_train.to_csv("wnut_17_ts_train.csv")
-updated_dataset_val.to_csv("wnut_17_ts_val.csv")
-updated_dataset_test.to_csv("wnut_17_ts_test.csv")
+updated_dataset_train.to_csv("wnut_17_ts/train.csv")
+updated_dataset_val.to_csv("wnut_17_ts/val.csv")
+updated_dataset_test.to_csv("wnut_17_ts/test.csv")
 
 
 
