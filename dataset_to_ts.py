@@ -72,9 +72,9 @@ sentence1 = [(tok, tag) for tok, tag in zip(dataset_train[0]["tokens"], dataset_
 
 print(sentence1)
 
-updated_dataset_train.to_json("wnut_17_ts/train.json")
-updated_dataset_val.to_json("wnut_17_ts/val.json")
-updated_dataset_test.to_json("wnut_17_ts/test.json")
+dataset_train.to_json("wnut_17_ts/train.json")
+dataset_val.to_json("wnut_17_ts/val.json")
+dataset_test.to_json("wnut_17_ts/test.json")
 
 
 
