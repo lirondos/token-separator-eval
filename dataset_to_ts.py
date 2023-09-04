@@ -61,16 +61,18 @@ dataset_val = load_dataset("wnut_17", split="validation")
 dataset_test = load_dataset("wnut_17", split="test")
     
 dataset_train = dataset_train.map(to_ts_notation, load_from_cache_file=False)
-print(dataset_train[0])
-
 dataset_val = dataset_val.map(to_ts_notation, load_from_cache_file=False)
 dataset_test = dataset_test.map(to_ts_notation, load_from_cache_file=False)
 
 
-sentence1 = [(tok, tag) for tok, tag in zip(dataset_train[0]["tokens"], dataset_train[0]["ner_tags"])]
+#sentence1 = [(tok, tag) for tok, tag in zip(dataset_train[0]["tokens"], dataset_train[0]["ner_tags"])]
 #sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens_ts"], updated_dataset_train[0]["ner_tags_ts"])]
 
-print(sentence1)
+#print(sentence1)
+
+print(dataset_train[0])
+print(dataset_val[0])
+print(dataset_test[0])
 
 dataset_train.to_json("wnut_17_ts/train.json")
 dataset_val.to_json("wnut_17_ts/val.json")
