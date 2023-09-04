@@ -37,9 +37,9 @@ sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens_ts"
 print(sentence1)
 print(sentence2)
 
-updated_dataset_train.to_csv("wnut_17_ts.train")
-updated_dataset_val.to_csv("wnut_17_ts.val")
-updated_dataset_test.to_csv("wnut_17_ts.test")
+updated_dataset_train.to_csv("wnut_17_ts_train.csv")
+updated_dataset_val.to_csv("wnut_17_ts_val.csv")
+updated_dataset_test.to_csv("wnut_17_ts_test.csv")
 
 
 
