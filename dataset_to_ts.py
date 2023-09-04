@@ -24,14 +24,24 @@ def to_ts_notation(item):
     item["ner_tags_ts"] = ner_tags_new
     return item
     
-dataset = load_dataset("wnut_17", split="train")
+dataset = load_dataset("wnut_17")
     
-updated_dataset = dataset.map(to_ts_notation)
+updated_dataset_train = dataset["train"].map(to_ts_notation)
+updated_dataset_val = dataset["validation"].map(to_ts_notation)
+updated_dataset_test = dataset["test"].map(to_ts_notation)
+
 
 sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset[0]["tokens"], updated_dataset[0]["ner_tags"])]
 sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset[0]["tokens_ts"], updated_dataset[0]["ner_tags_ts"])]
 
 print(sentence1)
 print(sentence2)
+
+updated_dataset_train.to_csv("wnut_17_ts.train")
+updated_dataset_val.to_csv("wnut_17_ts.val")
+updated_dataset_test.to_csv("wnut_17_ts.test")
+
+
+
 
 
