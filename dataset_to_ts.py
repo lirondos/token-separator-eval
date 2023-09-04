@@ -8,12 +8,12 @@ def to_ts_notation(item):
             ner_tags_new.insert(0, tag)
             tokens_new.insert(0, token)
             ner_tags_new.insert(0, tag)
-            tokens_new.insert(" ", token)
+            tokens_new.insert(0, " ")
         elif tag%2==0:
             ner_tags_new.insert(0, tag-1)
             tokens_new.insert(0, token)
             ner_tags_new.insert(0, tag-1)
-            tokens_new.insert(" ", token)
+            tokens_new.insert(0, " ")
         else:
             ner_tags_new.insert(0, tag)
             tokens_new.insert(0, token)
