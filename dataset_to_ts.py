@@ -28,6 +28,10 @@ dataset = load_dataset("wnut_17", split="train")
     
 updated_dataset = dataset.map(to_ts_notation)
 
-print(updated_dataset[0])
+sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset[0]["tokens"], updated_dataset[0]["ner_tags"])]
+sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset[0]["tokens_ts"], updated_dataset[0]["ner_tags_ts"])]
+
+print(sentence1)
+print(sentence2)
 
 
