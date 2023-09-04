@@ -32,6 +32,7 @@ label2id = {
 }
 
 def to_ts_notation(item):
+    print("hola")
     tokens_new = []
     ner_tags_new = []
     for token, tag in zip(reversed(item["tokens"]), reversed(item["ner_tags"])):
