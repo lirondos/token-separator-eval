@@ -53,6 +53,7 @@ def to_ts_notation(item):
     ner_tags_new.pop(0)
     item["tokens"] = tokens_new
     item["ner_tags"] = ner_tags_new
+    print(item)
     return item
     
 dataset = load_dataset("wnut_17")
