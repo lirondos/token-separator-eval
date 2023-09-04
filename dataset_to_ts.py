@@ -34,7 +34,9 @@ label2id = {
 def to_ts_notation(item):
     tokens_new = []
     ner_tags_new = []
-    for token, tag in zip(reversed(item["tokens"]), reversed(item["ner_tags"])):
+    tokens_reversed = reversed(item["tokens"])
+    ner_tags_reversed = reversed(item["ner_tags"])
+    for token, tag in zip(tokens_reversed, ner_tags_reversed):
         if tag==0:
             ner_tags_new.insert(0, id2label[tag])
             tokens_new.insert(0, token)
