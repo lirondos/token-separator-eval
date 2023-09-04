@@ -62,9 +62,10 @@ updated_dataset_val = dataset["validation"].map(to_ts_notation)
 updated_dataset_test = dataset["test"].map(to_ts_notation)
 
 
-#sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens"], updated_dataset_train[0]["ner_tags"])]
+sentence1 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens"], updated_dataset_train[0]["ner_tags"])]
 #sentence2 = [(tok, tag) for tok, tag in zip(updated_dataset_train[0]["tokens_ts"], updated_dataset_train[0]["ner_tags_ts"])]
 
+print(sentence1)
 
 updated_dataset_train.to_json("wnut_17_ts/train.json")
 updated_dataset_val.to_json("wnut_17_ts/val.json")
