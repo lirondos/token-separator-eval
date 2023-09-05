@@ -27,13 +27,15 @@ with open(args.output, 'w', newline='') as tsvfile:
                 interruptus_tag = None
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
                     if token.isspace():
-                        interruptus_tag = predicted_tag.split("-")[1]
+                        if predicted_tag != "O":
+                            interruptus_tag = predicted_tag.split("-")[1]
                         continue
                     else:
                         if predicted_tag != "O" and interruptus_tag:
                             writer.writerow([token, "I-" + interruptus_tag])
                         else: #predicted tag is O
                             writer.writerow([token, "O"])
+                        interruptus_tag = None
             writer.writerow([])
             writer.writerow([])
 
