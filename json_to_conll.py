@@ -25,6 +25,6 @@ with open(args.output, 'w', newline='') as tsvfile:
             for g, p in zip(goldstandard_lines, predictions_lines):
                 g_json = json.loads(g)
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
-                    writer.writerow([token, tag])
+                    writer.writerow([token, predicted_tag])
             writer.writerow([])
                 
