@@ -19,13 +19,13 @@ goldstandard = Path(args.goldstandard)
 with open(args.output, 'w', newline='') as tsvfile:
     writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
     
-        for line in f:
-            if args.predictions:
-                predictions = Path(args.predictions)
-                with open(goldstandard) as goldstandard_lines, open(predictions) as predictions_lines:
-                    for g, p in zip(goldstandard_lines, predictions_lines):
-                        g_json = json.loads(g)
-                        for token, predicted_tag in zip(g_json["tokens"], p.split()):
-                            writer.writerow([token, tag])
-                    writer.writerow([])
-                    
+    for line in f:
+        if args.predictions:
+            predictions = Path(args.predictions)
+            with open(goldstandard) as goldstandard_lines, open(predictions) as predictions_lines:
+                for g, p in zip(goldstandard_lines, predictions_lines):
+                    g_json = json.loads(g)
+                    for token, predicted_tag in zip(g_json["tokens"], p.split()):
+                        writer.writerow([token, tag])
+                writer.writerow([])
+                
