@@ -55,7 +55,7 @@ def to_ts_notation(item):
     item["tokens"] = tokens_new
     item["ner"] = ner_tags_new
     del item["ner_tags"]
-    del item["tokens"]
+    #del item["tokens"]
     print(ner_tags_new)
     print(item)
     return item
