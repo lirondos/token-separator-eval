@@ -52,9 +52,10 @@ def to_ts_notation(item):
         tokens_new.insert(0, " ")
     tokens_new.pop(0) # we added an extra space at the beginning, we remove it now
     ner_tags_new.pop(0)
-    item["tokens"] = tokens_new
-    item["bio_tags"] = ner_tags_new
+    item["words"] = tokens_new
+    item["ner"] = ner_tags_new
     del item["ner_tags"]
+    del item["tokens"]
     print(ner_tags_new)
     print(item)
     return item
