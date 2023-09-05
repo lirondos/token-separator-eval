@@ -26,16 +26,18 @@ with open(args.output, 'w', newline='') as tsvfile:
                 g_json = json.loads(g)
                 interruptus_tag = None
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
-                    if token.isspace():
-                        if predicted_tag != "O":
+                    if token.isspace(): # we are dealing with a space
+                        if predicted_tag != "O": # the space has a B/I label, we keep the tag
                             interruptus_tag = predicted_tag.split("-")[1]
-                        continue
-                    else:
-                        if predicted_tag != "O" and interruptus_tag:
-                            writer.writerow([token, "I-" + interruptus_tag])
-                        else: #predicted tag is O
-                            writer.writerow([token, "O"])
-                        interruptus_tag = None
+                        continue # we skip the space
+                    else: # we are dealing with a non-space token
+                        if predicted_tag != "O": 
+                            if interruptus_tag: # if it's not an O and there was an interruptus tag, we assume we are inside an entity
+                                writer.writerow([token, "I-" + interruptus_tag])
+                                interruptus_tag = None
+                                continue
+                        writer.writerow([token, predicted_tag])
+                        
             writer.writerow([])
             writer.writerow([])
 
