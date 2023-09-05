@@ -54,6 +54,7 @@ def to_ts_notation(item):
     ner_tags_new.pop(0)
     item["tokens"] = tokens_new
     item["bio_tags"] = ner_tags_new
+    del item["ner_tags"]
     print(ner_tags_new)
     print(item)
     return item
