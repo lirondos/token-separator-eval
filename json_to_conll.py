@@ -23,6 +23,8 @@ with open(args.output, 'w', newline='') as tsvfile:
         predictions = Path(args.predictions)
         with open(goldstandard) as goldstandard_lines, open(predictions) as predictions_lines:
             for g, p in zip(goldstandard_lines, predictions_lines):
+                print(g)
+                print(p)
                 g_json = json.loads(g)
                 interruptus_tag = None
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
@@ -40,7 +42,7 @@ with open(args.output, 'w', newline='') as tsvfile:
                         interruptus_tag = None
 
                         
-            writer.writerow([])
-            writer.writerow([])
+                writer.writerow([])
+                writer.writerow([])
 
                 
