@@ -21,5 +21,5 @@ with open(args.output, 'w', newline='') as tsvfile:
             item = json.loads(line)
             for token, tag in zip(item["tokens"], item["ner"]):
                 writer.writerow([token, tag])
-            writer.writerow(None)
-            writer.writerow(None)
+            writer.writerow([])
+            writer.writerow([])
