@@ -37,6 +37,8 @@ with open(args.output, 'w', newline='') as tsvfile:
                                 interruptus_tag = None
                                 continue
                         writer.writerow([token, predicted_tag])
+                        interruptus_tag = None
+
                         
             writer.writerow([])
             writer.writerow([])
