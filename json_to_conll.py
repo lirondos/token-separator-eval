@@ -24,7 +24,17 @@ with open(args.output, 'w', newline='') as tsvfile:
         with open(goldstandard) as goldstandard_lines, open(predictions) as predictions_lines:
             for g, p in zip(goldstandard_lines, predictions_lines):
                 g_json = json.loads(g)
+                interruptus_tag = None
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
-                    writer.writerow([token, predicted_tag])
+                    if token.isspace():
+                        interruptus_tag = predicted_tag.split("-")[1]
+                        continue
+                    else:
+                        if predicted_tag != "O" and interruptus_tag:
+                            writer.writerow([token, "I-" + interruptus_tag])
+                        else: #predicted tag is O
+                            writer.writerow([token, "O"])
             writer.writerow([])
+            writer.writerow([])
+
                 
