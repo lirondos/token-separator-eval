@@ -37,6 +37,7 @@ with open(input, "r", encoding="utf-8") as f:
                     to_ts.insert(0, (" ", "O"))
 
         else: # line is blank
+            to_ts.pop(0) # we remove the extra empty space
             to_ts.insert(0, ())
 
 with open(output, 'w', newline='') as csvfile:
