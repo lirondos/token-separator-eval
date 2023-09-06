@@ -31,10 +31,10 @@ with open(input, "r", encoding="utf-8") as f:
                 prefix, label = tag.split("-", 1) # we split on the first hyphen (bc "B-creative-work")
                 if prefix == "I":
                     to_ts.insert(0, (token, label))
-                    to_ts.insert(0, (" ", label))
+                    to_ts.insert(0, ("||", label))
                 elif prefix == "B":
                     to_ts.insert(0, (token, label))
-                    to_ts.insert(0, (" ", "O"))
+                    to_ts.insert(0, ("||", "O"))
 
         else: # line is blank
             if to_ts: # avoid popping the first time bc list is empty
