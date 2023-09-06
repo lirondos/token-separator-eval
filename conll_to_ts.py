@@ -19,7 +19,8 @@ output = Path(args.output)
 to_ts = []
 
 with open(input, "r", encoding="utf-8") as f:
-    lines = f.readlines().reverse()
+    lines = f.readlines()
+    lines.reverse()
     for line in lines:
         if line.strip(): # line is not blank
             token, tag = line.split("\t")
