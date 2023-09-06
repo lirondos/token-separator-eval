@@ -40,6 +40,8 @@ with open(input, "r", encoding="utf-8") as f:
             if to_ts: # avoid popping the first time bc list is empty
                 to_ts.pop(0) # we remove the extra empty space
             to_ts.insert(0, ())
+    
+    to_ts.pop(0) # we remove the last extra space added on the first line
 
 with open(output, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter='\t', quotechar='|', quoting=csv.QUOTE_MINIMAL)
