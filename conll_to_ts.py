@@ -26,7 +26,7 @@ with open(input, "r", encoding="utf-8") as f:
             token, tag = line.split()
             if tag == "O":
                 to_ts.insert(0, (token, tag))
-                to_ts.insert(0, (" ", "O"))
+                to_ts.insert(0, ("||", "O"))
             else: # B or I label
                 prefix, label = tag.split("-", 1) # we split on the first hyphen (bc "B-creative-work")
                 if prefix == "I":
@@ -44,7 +44,7 @@ with open(input, "r", encoding="utf-8") as f:
     to_ts.pop(0) # we remove the last extra space added on the first line
 
 with open(output, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    writer = csv.writer(csvfile, delimiter=' ')
     for item in to_ts:
         if item: # tuple is not empty
             writer.writerow([item[0], item[1]])
