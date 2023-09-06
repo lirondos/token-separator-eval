@@ -28,7 +28,7 @@ with open(input, "r", encoding="utf-8") as f:
                 to_ts.insert(0, (token, tag))
                 to_ts.insert(0, (" ", "O"))
             else: # B or I label
-                prefix, label = tag.split("-")
+                prefix, label = tag.split("-", 1) # we split on the first hyphen (bc "B-creative-work")
                 if prefix == "I":
                     to_ts.insert(0, (token, label))
                     to_ts.insert(0, (" ", label))
