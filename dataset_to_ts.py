@@ -78,9 +78,9 @@ print(dataset_train[0])
 print(dataset_val[0])
 print(dataset_test[0])
 
-dataset_train.to_json("wnut_17_ts/train.json")
-dataset_val.to_json("wnut_17_ts/val.json")
-dataset_test.to_json("wnut_17_ts/test.json")
+dataset_train.to_json("wnut_17_ts/train_bar.json")
+dataset_val.to_json("wnut_17_ts/val_bar.json")
+dataset_test.to_json("wnut_17_ts/test_bar.json")
 
 
 
