@@ -49,7 +49,7 @@ def to_ts_notation(item):
             ner_tags_new.insert(0, id2label[tag])
             tokens_new.insert(0, token)
             ner_tags_new.insert(0, id2label[0])
-        tokens_new.insert(0, " ")
+        tokens_new.insert(0, "||")
     tokens_new.pop(0) # we added an extra space at the beginning, we remove it now
     ner_tags_new.pop(0)
     item["tokens"] = tokens_new

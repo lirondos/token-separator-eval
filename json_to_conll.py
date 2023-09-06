@@ -28,7 +28,7 @@ with open(args.output, 'w', newline='') as tsvfile:
                 g_json = json.loads(g)
                 interruptus_tag = None
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
-                    if token.isspace(): # we are dealing with a space
+                    if token == "||": # we are dealing with a space
                         if predicted_tag != "O": # the space has a B/I label, we keep the tag
                             interruptus_tag = predicted_tag.split("-")[1]
                         continue # we skip the space
