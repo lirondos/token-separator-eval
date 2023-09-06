@@ -25,7 +25,7 @@ with open(input, "r", encoding="utf-8") as f:
         for line in f:
             if line.strip(): # line is not blank
                 token, tag = line.split()
-                if token = "||":
+                if token == "||":
                     if tag != "O":
                         tag_interruptus = tag
                 else: # we have a not || token
