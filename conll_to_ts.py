@@ -23,7 +23,6 @@ with open(input, "r", encoding="utf-8") as f:
     lines.reverse()
     for line in lines:
         if line.strip(): # line is not blank
-            token, tag = line.split("\t")
             token, tag = line.split()
             if tag == "O":
                 to_ts.insert(0, (token, tag))
