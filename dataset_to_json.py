@@ -34,7 +34,7 @@ label2id = {
 def from_int_to_bio(item):
     ner_tags_new = []
     for tag in item["ner_tags"]:
-        ner_tags_new.append(id2label[tag]))
+        ner_tags_new.append(id2label[tag])
     item["ner"] = ner_tags_new
     del item["ner_tags"]
     #del item["tokens"]
