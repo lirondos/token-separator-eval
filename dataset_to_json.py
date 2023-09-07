@@ -31,28 +31,10 @@ label2id = {
     "I-product": 12,
 }
 
-def to_ts_notation(item):
-    tokens_new = []
+def from_int_to_bio(item):
     ner_tags_new = []
-    tokens_reversed = reversed(item["tokens"])
-    ner_tags_reversed = reversed(item["ner_tags"])
-    for token, tag in zip(tokens_reversed, ner_tags_reversed):
-        if tag==0:
-            ner_tags_new.insert(0, id2label[tag])
-            tokens_new.insert(0, token)
-            ner_tags_new.insert(0, id2label[tag])
-        elif tag%2==0:
-            ner_tags_new.insert(0, id2label[tag-1])
-            tokens_new.insert(0, token)
-            ner_tags_new.insert(0, id2label[tag-1])
-        else:
-            ner_tags_new.insert(0, id2label[tag])
-            tokens_new.insert(0, token)
-            ner_tags_new.insert(0, id2label[0])
-        tokens_new.insert(0, "||")
-    tokens_new.pop(0) # we added an extra space at the beginning, we remove it now
-    ner_tags_new.pop(0)
-    item["tokens"] = tokens_new
+    for tag in item["ner_tags"]:
+        ner_tags_new.append(id2label[tag]))
     item["ner"] = ner_tags_new
     del item["ner_tags"]
     #del item["tokens"]
@@ -63,6 +45,13 @@ def to_ts_notation(item):
 dataset_train = load_dataset("wnut_17", split="train")
 dataset_val = load_dataset("wnut_17", split="validation")
 dataset_test = load_dataset("wnut_17", split="test")
+
+
+    
+dataset_train = dataset_train.map(from_int_to_bio, load_from_cache_file=False)
+dataset_val = dataset_val.map(from_int_to_bio, load_from_cache_file=False)
+dataset_test = dataset_test.map(from_int_to_bio, load_from_cache_file=False)
+
     
 dataset_train.to_json("wnut_17_bio/train.json")
 dataset_val.to_json("wnut_17_bio/val.json")
