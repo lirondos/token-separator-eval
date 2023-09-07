@@ -30,7 +30,7 @@ with open(args.output, 'w', newline='') as tsvfile:
                 for token, predicted_tag in zip(g_json["tokens"], p.split()):
                     if token == "||": # we are dealing with a space
                         if predicted_tag != "O": # the space has a B/I label, we keep the tag
-                            interruptus_tag = predicted_tag.split("-")[1]
+                            interruptus_tag = predicted_tag.split("-", 1)[1]
                         continue # we skip the space
                     else: # we are dealing with a non-space token
                         if predicted_tag != "O": 
