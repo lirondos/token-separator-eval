@@ -15,7 +15,6 @@ args = parser.parse_args()
 
 predicted = Path(args.predicted)
 goldstandard = Path(args.goldstandard)
-only_tokens = Path(args.only_tokens)
 
 to_ts = []
 tp = 0
@@ -27,7 +26,7 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
         if predicted_line.strip() and goldstandard_line.strip(): # lines are not blank
             predicted_token, predicted_tag = predicted_line.split()
             goldstandard_token, goldstandard_tag = goldstandard_line.split
-            if only_tokens and goldstandard_token == "||":
+            if args.only_tokens and goldstandard_token == "||":
                 continue
             if goldstandard_token != predicted_token:
                 print("Mismatch between files")
