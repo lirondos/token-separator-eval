@@ -46,7 +46,7 @@ recall = tp / (tp+fn)
 
 f1 = (2*precision*recall)/(precision+recall)
 
-print("P = " + precision)
-print("R = " + recall)
-print("F1 = " + f1)
+print("P = " + str(precision))
+print("R = " + str(recall))
+print("F1 = " + str(f1))
            
