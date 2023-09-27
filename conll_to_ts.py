@@ -10,7 +10,7 @@ PUNCTUATION_NOT_FOLLOWED = ["¡", "¿", "(", "[", "-"] # punctuation signs not f
 parser = argparse.ArgumentParser()
 parser.add_argument("--input", help="path to conll file to be transformed", type=str)
 parser.add_argument("--output", help="path where output file will be stored", type=str)
-#parser.add_argument('--is_predictions', action='store_true')
+parser.add_argument('--is_flair', action='store_true')
 
                     
 args = parser.parse_args()
@@ -25,7 +25,10 @@ with open(input, "r", encoding="utf-8") as f:
     lines.reverse()
     for line in lines:
         if line.strip(): # line is not blank
-            token, tag = line.split()
+            if args.is_flair: # we expect 3 columns
+                token, _, tag = line.split()
+            else:
+                token, tag = line.split()
             if token in PUNCTUATION_NOT_FOLLOWED:
                 if to_ts and len(to_ts[0])==2 and to_ts[0][0] == "||":
                     to_ts.pop(0)
