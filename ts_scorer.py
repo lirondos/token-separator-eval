@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import json
 import csv
-
+from collections import defaultdict
  
 
 parser = argparse.ArgumentParser()
@@ -15,6 +15,8 @@ args = parser.parse_args()
 
 predicted = Path(args.predicted)
 goldstandard = Path(args.goldstandard)
+
+counts = defaultdict(lambda: defaultdict(int))
 
 to_ts = []
 tp = 0
@@ -33,14 +35,23 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                 print("Goldstandard: " + goldstandard_token)
                 print("Prediction: " + predicted_token)
                 break
-            if predicted_tag != "O" and goldstandard_tag != "O": # they match (lenient version)
-                tp = tp + 1
+            if predicted_tag == goldstandard_tag: # they match 
+                if predicted_tag != "O":
+                    counts[predicted_tag]["tp"] = counts["tp"] + 1
             else: # they do not match
-                if goldstandard_tag == "O" and predicted_tag != "O":
-                    fp = fp + 1
-                elif goldstandard_tag != "O" and predicted_tag == "O":
-                    fn = fn + 1
+                if goldstandard_tag != "O": # is this correct?
+                    counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
+                if goldstandard_tag != "O":
+                    counts[goldstandard_tag]["fn"] = counts[goldstandard_tag]["fn"] + 1
+    
+tp = 0
+fp = 0
+fn = 0
 
+for tag, mydict in counts.items():
+    tp = mydict["tp"]
+    fp = mydict["fp"]
+    fn = mydict["fn"]
 precision = tp / (tp+fp)
 recall = tp / (tp+fn)
 
