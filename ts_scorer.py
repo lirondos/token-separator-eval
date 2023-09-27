@@ -30,9 +30,6 @@ goldstandard = Path(args.goldstandard)
 counts = defaultdict(lambda: defaultdict(int))
 
 to_ts = []
-tp = 0
-fn = 0
-fp = 0
 
 with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard, "r", encoding="utf-8") as goldstandard_file:
     for predicted_line, goldstandard_line in zip(predicted_file, goldstandard_file):
