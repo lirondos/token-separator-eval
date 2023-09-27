@@ -51,7 +51,7 @@ with open(input, "r", encoding="utf-8") as f:
         to_ts.pop(0) # we remove the last extra space added on the first line
 
 with open(output, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=' ', quoting=csv.QUOTE_NONE)
+    writer = csv.writer(csvfile, delimiter=' ', quoting=csv.QUOTE_NONE, quotechar=None)
     for item in to_ts:
         if item: # tuple is not empty
             writer.writerow([item[0], item[1]])
