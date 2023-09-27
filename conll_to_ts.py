@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 import csv
 
-PUNCTUATION = [",",":",";", ".", "!", "?", ")", "]", "-"] # punctuation signs not preceeded by space
+PUNCTUATION = [",",":",";", ".", "!", "?", ")", "]", "-", "\""] # punctuation signs not preceeded by space
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--input", help="path to conll file to be transformed", type=str)
