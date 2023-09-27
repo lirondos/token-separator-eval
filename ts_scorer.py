@@ -4,7 +4,18 @@ import json
 import csv
 from collections import defaultdict
  
-
+def get_p_r_f(tp, fp, fn):
+    precision = tp / (tp+fp)
+    recall = tp / (tp+fn)
+    f1 = (2*precision*recall)/(precision+recall)
+    return precision, recall, f1
+    
+def print_p_r_f1(precision, recall, f1, label):
+    print("For label " + label)
+    print("P = " + str(precision))
+    print("R = " + str(recall))
+    print("F1 = " + str(f1))
+    
 parser = argparse.ArgumentParser()
 parser.add_argument("--predicted", help="path to conll file to be transformed", type=str)
 parser.add_argument("--goldstandard", help="path where output file will be stored", type=str)
@@ -49,15 +60,16 @@ fp = 0
 fn = 0
 
 for tag, mydict in counts.items():
-    tp = mydict["tp"]
-    fp = mydict["fp"]
-    fn = mydict["fn"]
-precision = tp / (tp+fp)
-recall = tp / (tp+fn)
+    p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
+    print_p_r_f1(p,r,f1,tag)
 
-f1 = (2*precision*recall)/(precision+recall)
+    tp = tp + mydict["tp"]
+    fp = fp + mydict["fp"]
+    fn = fn + mydict["fn"]
+    
+p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
+print_p_r_f1(p,r,f1,"ALL")
 
-print("P = " + str(precision))
-print("R = " + str(recall))
-print("F1 = " + str(f1))
+
+
            
