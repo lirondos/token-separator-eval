@@ -47,7 +47,7 @@ with open(input, "r", encoding="utf-8") as f:
                 to_ts.pop(0) # we remove the extra empty space
             to_ts.insert(0, ())
     
-    if to_ts[0] == () # PUNCTUATION chars won't add extra space so we check first
+    if to_ts[0] == (): # PUNCTUATION chars won't add extra space so we check first
         to_ts.pop(0) # we remove the last extra space added on the first line
 
 with open(output, 'w', newline='') as csvfile:
