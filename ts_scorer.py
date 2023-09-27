@@ -37,7 +37,7 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                 break
             if predicted_tag == goldstandard_tag: # they match 
                 if predicted_tag != "O":
-                    counts[predicted_tag]["tp"] = counts["tp"] + 1
+                    counts[predicted_tag]["tp"] = counts[predicted_tag]["tp"] + 1
             else: # they do not match
                 if goldstandard_tag != "O": # is this correct?
                     counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
