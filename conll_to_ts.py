@@ -26,8 +26,8 @@ with open(input, "r", encoding="utf-8") as f:
     for line in lines:
         if line.strip(): # line is not blank
             token, tag = line.split()
-            if token in PUNCTUATION_NOT_FOLLOWED and to_ts:
-                if to_ts[0][0] == "||":
+            if token in PUNCTUATION_NOT_FOLLOWED:
+                if to_ts and to_ts[0][0] == "||":
                     to_ts.pop(0)
             if tag == "O":
                 to_ts.insert(0, (token, tag))
