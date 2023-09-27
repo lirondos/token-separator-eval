@@ -43,15 +43,15 @@ with open(input, "r", encoding="utf-8") as f:
                     to_ts.insert(0, ("||", "O"))
 
         else: # line is blank
-            if to_ts and to_ts[0] == (): # avoid popping the first time bc list is empty
+            if to_ts and to_ts[0][0] == "||": # avoid popping the first time bc list is empty
                 to_ts.pop(0) # we remove the extra empty space
             to_ts.insert(0, ())
     
-    if to_ts[0] == (): # PUNCTUATION chars won't add extra space so we check first
+    if to_ts[0][0] == "||": # PUNCTUATION chars won't add extra space so we check first
         to_ts.pop(0) # we remove the last extra space added on the first line
 
 with open(output, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=' ')
+    writer = csv.writer(csvfile, delimiter=' ', quoting=csv.QUOTE_NONE)
     for item in to_ts:
         if item: # tuple is not empty
             writer.writerow([item[0], item[1]])
