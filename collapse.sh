@@ -15,11 +15,9 @@ export BIO_FILE_DEV="$RUN_DIR"/test.conll
 export BIO_FILE_TEST_REPAIRED="$RUN_DIR"/test_repaired.conll
 export BIO_FILE_TEST_AGNOSTIC="$RUN_DIR"/test_agnostic.conll
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
 
 embeddings=( "bert-beto-bpe"  "bert-beto-bpe-char"  "codeswitch"  "codeswitch-bpe"  "codeswitch-char"  "codeswitch-char-bpe" )
 
@@ -40,11 +38,9 @@ export BIO_FILE_TEST="$RUN_DIR"/final_test.tsv
 export BIO_FILE_TEST_REPAIRED="$RUN_DIR"/final_test_repaired.tsv
 export BIO_FILE_TEST_AGNOSTIC="$RUN_DIR"/final_test_agnostic.tsv
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
 
 done
 
@@ -65,11 +61,9 @@ export BIO_FILE_TEST="$RUN_DIR"/test_results/test_predictions.txt
 export BIO_FILE_TEST_REPAIRED="$RUN_DIR"/test_results/test_predictions_repaired.txt
 export BIO_FILE_TEST_AGNOSTIC="$RUN_DIR"/test_results/test_predictions_agnostic.txt
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
 
 done
 )
@@ -89,11 +83,9 @@ export BIO_FILE_TEST="$RUN_DIR"/test_results/test_predictions.txt
 export BIO_FILE_TEST_REPAIRED="$RUN_DIR"/test_results/test_predictions_repaired.txt
 export BIO_FILE_TEST_AGNOSTIC="$RUN_DIR"/test_results/test_predictions_agnostic.txt
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_DEV $BIO_FILE_DEV_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_DEV_REPAIRED $BIO_FILE_DEV_AGNOSTIC
 
-seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED
-seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
+seqscore repair --labels BIO --repair-method conlleval $BIO_FILE_TEST $BIO_FILE_TEST_REPAIRED && seqscore process --labels BIO --type-map $JSON_FILE $BIO_FILE_TEST_REPAIRED $BIO_FILE_TEST_AGNOSTIC
  
 done
 )
