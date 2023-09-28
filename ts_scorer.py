@@ -62,8 +62,8 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                         counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
                         if goldstandard_tag == "O":
                             print("Unicornio")
-                            print("Predicted: " + (predicted_token, predicted_tag))
-                            print("Goldstandard: " + (goldstandard_token, goldstandard_tag))
+                            print("Predicted: " + predicted_token + "  " + predicted_tag)
+                            print("Goldstandard: " + goldstandard_token + "  " +  goldstandard_tag)
 
                     if goldstandard_tag != "O":
                         counts[goldstandard_tag]["fn"] = counts[goldstandard_tag]["fn"] + 1
