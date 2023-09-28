@@ -51,7 +51,7 @@ with open(input, "r", encoding="utf-8") as f:
                     to_ts.insert(0, ("||", "O"))
 
         else: # line is blank
-            if to_ts and to_ts[0][0] == "||": # avoid popping the first time bc list is empty
+            if to_ts and len(to_ts[0])==2 and to_ts[0][0] == "||": # avoid popping the first time bc list is empty
                 to_ts.pop(0) # we remove the extra empty space
             to_ts.insert(0, ())
     
