@@ -65,7 +65,7 @@ for tag, mydict in counts.items():
     fp = fp + mydict["fp"]
     fn = fn + mydict["fn"]
     
-p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
+p, r, f1 = get_p_r_f(tp, fp, fn)
 print_p_r_f1(p,r,f1,"ALL")
 
 
