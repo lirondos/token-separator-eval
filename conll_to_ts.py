@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 import csv
 
-PUNCTUATION_NOT_PRECEEDED = [",",":",";", ".", "!", "?", ")", "]", "-"] # punctuation signs not preceeded by space
+PUNCTUATION_NOT_PRECEEDED = [",",":",";", ".", "!", "?", ")", "]", "-", "´"] # punctuation signs not preceeded by space
 PUNCTUATION_NOT_FOLLOWED = ["¡", "¿", "(", "[", "-"] # punctuation signs not followed by space
 
 
