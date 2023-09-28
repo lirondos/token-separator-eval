@@ -4,7 +4,7 @@ conda activate lrec2024
 
 
 embedding="bert-beto-bpe"
-run ="1"
+run="1"
 
 export RUN_DIR=/home/ealvarezmellado/borrowings-acl-2022/out/flair/"$embedding"/run"$run"
 export BIO_FILE_TEST="$RUN_DIR"/final_dev.tsv
