@@ -46,12 +46,12 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                 break
             if args.collapse_entities: # lenient version
                 if predicted_tag != "O" and goldstandard_tag != "O": # they match in the lenient version
-                    counts[predicted_tag]["tp"] = counts[predicted_tag]["tp"] + 1
+                    counts["ENT"]["tp"] = counts["ENT"]["tp"] + 1
                 else: # they do not match
                     if goldstandard == "O" and predicted_tag != "O": # 
-                        counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
+                        counts["ENT"]["fp"] = counts["ENT"]["fp"] + 1
                     if predicted_tag == "O" and goldstandard_tag != "O":
-                        counts[goldstandard_tag]["fn"] = counts[goldstandard_tag]["fn"] + 1 
+                        counts["ENT"]["fn"] = counts["ENT"]["fn"] + 1 
 
             else: # exact entity match
                 if predicted_tag == goldstandard_tag: # they match 
