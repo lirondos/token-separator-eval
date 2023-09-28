@@ -26,6 +26,8 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/conll_to_ts.py --inpu
 python /home/ealvarezmellado/lrec2024/token-separator-eval/conll_to_ts.py --input $BIO_FILE_DEV --output $TS_FILE_DEV --is_flair
 
 done
+
+done
 )
 
 (
