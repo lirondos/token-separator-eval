@@ -20,6 +20,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--predicted", help="path to conll file to be transformed", type=str)
 parser.add_argument("--goldstandard", help="path where output file will be stored", type=str)
 parser.add_argument('--only_tokens', action='store_true')
+parser.add_argument('--collapse_entities', action='store_true')
 
                     
 args = parser.parse_args()
@@ -43,15 +44,25 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                 print("Goldstandard: " + goldstandard_token)
                 print("Prediction: " + predicted_token)
                 break
-            if predicted_tag == goldstandard_tag: # they match 
-                if predicted_tag != "O":
+            if args.collapse_entities: # lenient version
+                if predicted_tag != "O" and goldstandard_tag != "O": # they match in the lenient version
                     counts[predicted_tag]["tp"] = counts[predicted_tag]["tp"] + 1
-            else: # they do not match
-                if predicted_tag != "O": # 
-                    counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
-                if goldstandard_tag != "O":
-                    counts[goldstandard_tag]["fn"] = counts[goldstandard_tag]["fn"] + 1
-    
+                else: # they do not match
+                    if goldstandard == "O" and predicted_tag != "O": # 
+                        counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
+                    if predicted_tag == "O" and goldstandard_tag != "O":
+                        counts[goldstandard_tag]["fn"] = counts[goldstandard_tag]["fn"] + 1 
+
+            else: # exact entity match
+                if predicted_tag == goldstandard_tag: # they match 
+                    if predicted_tag != "O":
+                        counts[predicted_tag]["tp"] = counts[predicted_tag]["tp"] + 1
+                else: # they do not match
+                    if predicted_tag != "O": # 
+                        counts[predicted_tag]["fp"] = counts[predicted_tag]["fp"] + 1
+                    if goldstandard_tag != "O":
+                        counts[goldstandard_tag]["fn"] = counts[goldstandard_tag]["fn"] + 1
+        
 tp = 0
 fp = 0
 fn = 0
