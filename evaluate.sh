@@ -61,16 +61,16 @@ export PREDICTED_DEV_AGNOSTIC="$RUN_DIR"/final_dev_agnostic.tsv
 export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/final_test_agnostic.tsv
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_FILE_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_FILE_TEST
+python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
+python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
 
 # TS evaluation
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_FILE_DEV --seed $run 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_FILE_TEST --seed $run 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_DEV --seed $run 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TEST --seed $run 
 
 # TS evaluation only tokens
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_FILE_DEV --seed $run --only_tokens 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_FILE_TEST --seed $run --only_tokens 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_TOK_DEV --seed $run --only_tokens 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TOK_TEST --seed $run --only_tokens 
 
 
 
@@ -78,16 +78,16 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_FILE_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_FILE_TEST
+python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
+python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_FILE_DEV --seed $run --collapse_entities 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_FILE_TEST --seed $run --collapse_entities 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_AGNOSTIC_TEST --seed $run --collapse_entities 
 
 # TS evaluation only tokens
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_FILE_DEV --seed $run --only_tokens --collapse_entities 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_FILE_TEST --seed $run --only_tokens --collapse_entities 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_TOK_AGNOSTIC_DEV --seed $run --only_tokens --collapse_entities 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TOK_AGNOSTIC_TEST --seed $run --only_tokens --collapse_entities 
 
 
 
