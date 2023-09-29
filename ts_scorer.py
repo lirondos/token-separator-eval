@@ -14,9 +14,13 @@ def write_to_csv(rows):
         writer.writerows(rows)
  
 def get_p_r_f(tp, fp, fn):
-    precision = tp / (tp+fp)
-    recall = tp / (tp+fn)
-    f1 = (2*precision*recall)/(precision+recall)
+    try:
+        precision = tp / (tp+fp)
+        recall = tp / (tp+fn)
+        f1 = (2*precision*recall)/(precision+recall)
+    except:
+        print(args.csv, args.goldstandard)
+        
     return precision, recall, f1
     
 def print_p_r_f1(precision, recall, f1, label):
@@ -79,7 +83,7 @@ tp = 0
 fp = 0
 fn = 0
 
-#print(counts)
+print(counts)
 rows = []
 for tag, mydict in counts.items():
     p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
