@@ -3,6 +3,15 @@ from pathlib import Path
 import json
 import csv
 from collections import defaultdict
+
+
+def write_to_csv(rows):
+    # Workbook is created
+    with open(args.csv, 'a', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+
+        # write multiple rows
+        writer.writerows(rows)
  
 def get_p_r_f(tp, fp, fn):
     precision = tp / (tp+fp)
@@ -21,6 +30,9 @@ parser.add_argument("--predicted", help="path to conll file to be transformed", 
 parser.add_argument("--goldstandard", help="path where output file will be stored", type=str)
 parser.add_argument('--only_tokens', action='store_true')
 parser.add_argument('--collapse_entities', action='store_true')
+parser.add_argument('--csv', type=str)
+parser.add_argument('--seed', type=str)
+
 
                     
 args = parser.parse_args()
@@ -67,17 +79,21 @@ tp = 0
 fp = 0
 fn = 0
 
-print(counts)
+print(counts
+rows = []
 for tag, mydict in counts.items():
     p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
-    print_p_r_f1(p,r,f1,tag)
+    #print_p_r_f1(p,r,f1,tag)
+
+    rows.append([args.seed, tag, p, r, f1])
 
     tp = tp + mydict["tp"]
     fp = fp + mydict["fp"]
     fn = fn + mydict["fn"]
-    
+
 p, r, f1 = get_p_r_f(tp, fp, fn)
-print_p_r_f1(p,r,f1,"ALL")
+rows.append([args.seed, "ALL", p, r, f1])
+write_to_csv(rows)    
 
 
 
