@@ -52,7 +52,7 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
             if args.only_tokens and goldstandard_token == "||":
                 continue
             if goldstandard_token != predicted_token and goldstandard_token != "||" and predicted_token != " ":
-                print("Mismatch between files in line " + i)
+                print("Mismatch between files in line " + str(i))
                 print("Goldstandard: " + goldstandard_token)
                 print("Prediction: " + predicted_token)
                 break
