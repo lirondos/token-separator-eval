@@ -79,7 +79,7 @@ tp = 0
 fp = 0
 fn = 0
 
-print(counts
+#print(counts)
 rows = []
 for tag, mydict in counts.items():
     p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
