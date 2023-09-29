@@ -1,5 +1,5 @@
 #!/bin/bash
-source ~/miniconda3/etc/profile.d/conda.sh
+source /home/ealvarezmellado/miniconda3/etc/profile.d/conda.sh
 conda activate lrec2024
 
 export EVALUATION_DIR=/home/ealvarezmellado/lrec2024/token-separator-eval/evaluation
