@@ -20,7 +20,7 @@ embeddings=( "bert-beto-bpe"  "bert-beto-bpe-char"  "codeswitch"  "codeswitch-bp
 # we run on flair
 
 
-(
+
 for embedding in "${embeddings[@]}" ; do
 
 
@@ -94,7 +94,7 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 done
 
 done
-)
+
 
 # we evaluate beto
 
@@ -118,7 +118,7 @@ export CSV_TS_AGNOSTIC_TEST="$EVALUATION_DIR"/beto_ts_agnostic_test.csv
 export CSV_TS_TOK_AGNOSTIC_DEV="$EVALUATION_DIR"/beto_ts_tok_agnostic_dev.csv
 export CSV_TS_TOK_AGNOSTIC_TEST="$EVALUATION_DIR"/beto_ts_tok_agnostic_test.csv
 
-(
+
 for run in {1..10}; do
 
 export RUN_DIR=/home/ealvarezmellado/borrowings-acl-2022/out/beto/run"$run"
@@ -162,7 +162,7 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TOK_AGNOSTIC_TEST --seed $run --only_tokens --collapse_entities 
 
 
-)
+
 
 # we evaluate mbert
 
@@ -186,7 +186,7 @@ export CSV_TS_TOK_AGNOSTIC_DEV="$EVALUATION_DIR"/mbert_ts_tok_agnostic_dev.csv
 export CSV_TS_TOK_AGNOSTIC_TEST="$EVALUATION_DIR"/mbert_ts_tok_agnostic_test.csv
 
 
-(
+
 for run in {1..10}; do
 
 export RUN_DIR=/home/ealvarezmellado/borrowings-acl-2022/out/mbert/run"$run"
@@ -228,7 +228,7 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 # TS evaluation only tokens
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_TOK_AGNOSTIC_DEV --seed $run --only_tokens --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TOK_AGNOSTIC_TEST --seed $run --only_tokens --collapse_entities run
-)
+
 
 
 

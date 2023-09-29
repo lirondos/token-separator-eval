@@ -14,15 +14,12 @@ def write_to_csv(rows):
         writer.writerows(rows)
  
 def get_p_r_f(tp, fp, fn):
-    try:
-        precision = tp / (tp+fp)
-        recall = tp / (tp+fn)
-        f1 = (2*precision*recall)/(precision+recall)
-    except:
-        print(args.csv, args.goldstandard)
-        
-    return precision, recall, f1
-    
+    precision = tp / (tp+fp) if (tp+fp) > 0 else 0 
+    recall = tp / (tp+fn) if (tp+fn) > 0 else 0
+    f1 = (2*precision*recall)/(precision+recall)
+    return precision*100, recall*100, f1*100
+
+            
 def print_p_r_f1(precision, recall, f1, label):
     print("For label " + label)
     print("P = " + str(precision))
