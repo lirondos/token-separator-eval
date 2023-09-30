@@ -161,7 +161,7 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_TOK_AGNOSTIC_DEV --seed $run --only_tokens --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TOK_AGNOSTIC_TEST --seed $run --only_tokens --collapse_entities 
 
-
+done
 
 
 # we evaluate mbert
@@ -229,7 +229,7 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_TOK_AGNOSTIC_DEV --seed $run --only_tokens --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TEST_TS --csv $CSV_TS_TOK_AGNOSTIC_TEST --seed $run --only_tokens --collapse_entities run
 
-
+done
 
 
 
