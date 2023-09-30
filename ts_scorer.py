@@ -56,6 +56,8 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                 print("Mismatch between files in line " + str(i))
                 print("Goldstandard: " + goldstandard_token)
                 print("Prediction: " + predicted_token)
+                print(args.goldstandard)
+                print(args.predicted)
                 break
             if args.collapse_entities: # lenient version
                 if predicted_tag != "O" and goldstandard_tag != "O": # they match in the lenient version
