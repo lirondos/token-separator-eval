@@ -16,7 +16,7 @@ def write_to_csv(rows):
 def get_p_r_f(tp, fp, fn):
     precision = tp / (tp+fp) if (tp+fp) > 0 else 0 
     recall = tp / (tp+fn) if (tp+fn) > 0 else 0
-    f1 = (2*precision*recall)/(precision+recall)
+    f1 = (2*precision*recall)/(precision+recall) if (precision+recall) > 0 else 0
     return precision*100, recall*100, f1*100
 
             
