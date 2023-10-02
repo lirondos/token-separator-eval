@@ -33,11 +33,11 @@ for file in files:
         f = df["RECALL_ALL"].mean()
     if split == "dev":
         dev[metric][model]["precision"] = p
-        dev[metric][model]["recall"] = recall
+        dev[metric][model]["recall"] = r
         dev[metric][model]["f1"] = f1
     else:
         test[metric][model]["precision"] = p
-        test[metric][model]["recall"] = recall
+        test[metric][model]["recall"] = r
         test[metric][model]["f1"] = f1
 for metric,model in dev.items():
     with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/evaluation/dev.xlsx", engine="openpyxl", mode="a") as writer:
