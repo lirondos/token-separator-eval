@@ -124,13 +124,13 @@ for run in {1..10}; do
 export RUN_DIR=/home/ealvarezmellado/borrowings-acl-2022/out/beto/run"$run"
 
 export PREDICTED_DEV="$RUN_DIR"/dev_predictions.txt
-export PREDICTED_TEST="$RUN_DIR"/test_results/test_predictions.txt
+export PREDICTED_TEST="$RUN_DIR"/test_results/oct2023/test_predictions.txt
 
 export PREDICTED_DEV_TS="$RUN_DIR"/dev_predictions_ts.txt
-export PREDICTED_TEST_TS="$RUN_DIR"/test_results/test_predictions_ts.txt
+export PREDICTED_TEST_TS="$RUN_DIR"/test_results/oct2023/test_predictions_ts.txt
 
 export PREDICTED_DEV_AGNOSTIC="$RUN_DIR"/dev_predictions_agnostic.txt
-export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/test_results/test_predictions_agnostic.txt
+export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/test_results/oct2023/test_predictions_agnostic.txt
 
 # Span evaluation
 python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
@@ -192,13 +192,13 @@ for run in {1..10}; do
 export RUN_DIR=/home/ealvarezmellado/borrowings-acl-2022/out/mbert/run"$run"
 
 export PREDICTED_DEV="$RUN_DIR"/dev_predictions.txt
-export PREDICTED_TEST="$RUN_DIR"/test_results/test_predictions.txt
+export PREDICTED_TEST="$RUN_DIR"/test_results/oct2023/test_predictions.txt
 
 export PREDICTED_DEV_TS="$RUN_DIR"/dev_predictions_ts.txt
-export PREDICTED_TEST_TS="$RUN_DIR"/test_results/test_predictions_ts.txt
+export PREDICTED_TEST_TS="$RUN_DIR"/test_results/oct2023/test_predictions_ts.txt
 
 export PREDICTED_DEV_AGNOSTIC="$RUN_DIR"/dev_predictions_agnostic.txt
-export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/test_results/test_predictions_agnostic.txt
+export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/test_results/oct2023/test_predictions_agnostic.txt
 
 # Span evaluation
 python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
