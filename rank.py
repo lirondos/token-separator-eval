@@ -20,7 +20,7 @@ for file in files:
     file_name = file.stem
     model, rest = file_name.split('_', 1)
     metric, split = rest.rsplit('_', 1)
-    df = pd.read_csv(files, sep=",", header=0)
+    df = pd.read_csv(file, sep=",", header=0)
     if "agnostic" in metric:
         p = df["PRECISION_ENT"].mean()
         r = df["RECALL_ENT"].mean()
