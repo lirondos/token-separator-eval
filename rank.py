@@ -34,11 +34,11 @@ for file in files:
     if split == "dev":
         dev[metric][model]["precision"] = p
         dev[metric][model]["recall"] = r
-        dev[metric][model]["f1"] = f1
+        dev[metric][model]["f1"] = f
     else:
         test[metric][model]["precision"] = p
         test[metric][model]["recall"] = r
-        test[metric][model]["f1"] = f1
+        test[metric][model]["f1"] = f
 for metric,model in dev.items():
     with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/evaluation/dev.xlsx", engine="openpyxl", mode="a") as writer:
         pd.Dataframe.from_dict(mydict).to_excel(writer, sheet_name=metric)
