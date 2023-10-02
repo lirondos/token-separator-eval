@@ -23,6 +23,7 @@ for file in files:
     model, rest = file_name.split('_', 1)
     metric, split = rest.rsplit('_', 1)
     df = pd.read_csv(file, sep=",", header=0)
+    print(df)
     if "agnostic" in metric:
         p = df["PRECISION_ENT"].mean()
         r = df["RECALL_ENT"].mean()
