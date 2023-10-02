@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import csv
 import pandas as pd
+from collections import defaultdict
  
 
 parser = argparse.ArgumentParser()
@@ -12,8 +13,9 @@ parser.add_argument("--folder", help="path to folder with evaluation", type=str)
                     
 args = parser.parse_args()
 
-test = dict()
-dev = dict()
+test = defaultdict(lambda: defaultdict(lambda:None))
+dev = defaultdict(lambda: defaultdict(lambda: None))
+
 
 files = Path(args.folder).glob('*')
 for file in files:
