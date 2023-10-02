@@ -13,35 +13,35 @@ export SAVE_STEPS=750
 
 
 
-#(
-#for run in {1..1}; do
-export OUTPUT_RUN_DIR="$OUT_DIR"/run"$run"
-export OUTPUT_DIR_TEST="$OUTPUT_RUN_DIR"/test_results/oct2023
+(
+for run in {1..10}; do
+    export OUTPUT_RUN_DIR="$OUT_DIR"/run"$run"
+    export OUTPUT_DIR_TEST="$OUTPUT_RUN_DIR"/test_results/oct2023
 
-export SEED=$run
-#export SEED=$((RANDOM % 10))
-rm /home/ealvarezmellado/transformers/examples/legacy/token-classification/cached_*
+    export SEED=$run
+    #export SEED=$((RANDOM % 10))
+    rm /home/ealvarezmellado/transformers/examples/legacy/token-classification/cached_*
 
-conda activate huggingface
-
-
-rm "$DATA_DIR_TEST"/cached_*
+    conda activate huggingface
 
 
-python /home/ealvarezmellado/transformers/examples/legacy/token-classification/run_ner.py \
---data_dir $DATA_DIR_TEST \
---labels $LABELS \
---model_name_or_path $OUTPUT_RUN_DIR \
---output_dir $OUTPUT_DIR_TEST \
---max_seq_length  $MAX_LENGTH \
---num_train_epochs $NUM_EPOCHS \
---per_device_train_batch_size $BATCH_SIZE \
---save_steps $SAVE_STEPS \
---seed $SEED \
---do_predict 
-    
+    rm "$DATA_DIR_TEST"/cached_*
 
-#done
-#)
+
+    python /home/ealvarezmellado/transformers/examples/legacy/token-classification/run_ner.py \
+    --data_dir $DATA_DIR_TEST \
+    --labels $LABELS \
+    --model_name_or_path $OUTPUT_RUN_DIR \
+    --output_dir $OUTPUT_DIR_TEST \
+    --max_seq_length  $MAX_LENGTH \
+    --num_train_epochs $NUM_EPOCHS \
+    --per_device_train_batch_size $BATCH_SIZE \
+    --save_steps $SAVE_STEPS \
+    --seed $SEED \
+    --do_predict 
+        
+
+done
+)
 
 
