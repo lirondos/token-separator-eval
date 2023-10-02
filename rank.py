@@ -13,8 +13,8 @@ parser.add_argument("--folder", help="path to folder with evaluation", type=str)
                     
 args = parser.parse_args()
 
-test = defaultdict(lambda: defaultdict(lambda:None))
-dev = defaultdict(lambda: defaultdict(lambda: None))
+dev = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: None)))
+test = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: None)))
 
 files = Path(args.folder).glob('*')
 for file in files:
