@@ -61,8 +61,8 @@ export PREDICTED_DEV_AGNOSTIC="$RUN_DIR"/final_dev_agnostic.tsv
 export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/final_test_agnostic.tsv
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_DEV --seed $run 
@@ -78,8 +78,8 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
@@ -133,8 +133,8 @@ export PREDICTED_DEV_AGNOSTIC="$RUN_DIR"/dev_predictions_agnostic.txt
 export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/test_results/oct2023/test_predictions_agnostic.txt
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_DEV --seed $run 
@@ -150,8 +150,8 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
@@ -201,8 +201,8 @@ export PREDICTED_DEV_AGNOSTIC="$RUN_DIR"/dev_predictions_agnostic.txt
 export PREDICTED_TEST_AGNOSTIC="$RUN_DIR"/test_results/oct2023/test_predictions_agnostic.txt
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV --predicted $PREDICTED_DEV --seed $run --csv $CSV_SPAN_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST --predicted $PREDICTED_TEST --seed $run --csv $CSV_SPAN_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_DEV --seed $run 
@@ -218,8 +218,8 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 
 
 # Span evaluation
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
-python /home/ealvarezmellado/borrowings-acl-2022/scripts/evaluate.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_DEV_TS --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 

@@ -83,20 +83,22 @@ fp = 0
 fn = 0
 
 print(counts)
-rows = []
-for tag, mydict in counts.items():
-    p, r, f1 = get_p_r_f(mydict["tp"],mydict["fp"],mydict["fn"])
+
+if args.collapse_entities:
+    p, r, f1 = get_p_r_f(counts["ENT"]["tp"],counts["ENT"]["fp"],counts["ENT"]["fn"])
+    row = [[args.seed, p, r, f1]]
+else:
+    p_eng, r_eng, f1_eng = get_p_r_f(counts["ENG"]["tp"],counts["ENG"]["fp"],counts["ENG"]["fn"])
+    p_other, r_other, f1_other = get_p_r_f(counts["OTHER"]["tp"],counts["OTHER"]["fp"],counts["OTHER"]["fn"])
     #print_p_r_f1(p,r,f1,tag)
 
-    rows.append([args.seed, tag, p, r, f1])
+    tp = counts["ENG"]["tp"] + counts["OTHER"]["tp"]
+    fp = counts["ENG"]["fp"] + counts["OTHER"]["fp"]
+    fn = counts["ENG"]["fn"] + counts["OTHER"]["fn"]
+    p_all, r_all, f1_all = get_p_r_f(tp, fp, fn)
 
-    tp = tp + mydict["tp"]
-    fp = fp + mydict["fp"]
-    fn = fn + mydict["fn"]
-
-p, r, f1 = get_p_r_f(tp, fp, fn)
-rows.append([args.seed, "ALL", p, r, f1])
-write_to_csv(rows)    
+    row = [[args.seed, p_all, r_all, f1_all, p_eng, r_eng, f1_eng, p_other, r_other, f1_other]]
+write_to_csv(row)    
 
 
 
