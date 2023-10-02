@@ -18,7 +18,7 @@ dev = dict()
 files = Path(args.folder).glob('*')
 for file in files:
     file_name = file.stem()
-    model, rest = file_name.split('_', 1)[]
+    model, rest = file_name.split('_', 1)
     metric, split = rest.rsplit('_', 1)
     df = pd.read_csv(files, sep=",", header=0)
     if "agnostic" in metric:
