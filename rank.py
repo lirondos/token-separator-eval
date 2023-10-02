@@ -16,7 +16,6 @@ args = parser.parse_args()
 test = defaultdict(lambda: defaultdict(lambda:None))
 dev = defaultdict(lambda: defaultdict(lambda: None))
 
-
 files = Path(args.folder).glob('*')
 for file in files:
     file_name = file.stem
@@ -33,15 +32,14 @@ for file in files:
         r = df["RECALL_ALL"].mean()
         f = df["RECALL_ALL"].mean()
     if split == "dev":
-        dev[metric][model]=(p,r,f)
+        dev[metric][model]["precision"] = p
+        dev[metric][model]["recall"] = recall
+        dev[metric][model]["f1"] = f1
     else:
-        test[metric][model]=(p,r,f)
-for split, metric in dev.items():
-    for model, numbers in metric.items():
-        p, r, f = numbers
-        mydic["precision"] = p
-        mydic["recall"] = r
-        mydic["f1"] = f
+        test[metric][model]["precision"] = p
+        test[metric][model]["recall"] = recall
+        test[metric][model]["f1"] = f1
+for metric,model in dev.items():
     with pd.ExcelWriter("dev.xlsx", engine="openpyxl", mode="a") as writer:
         pd.Dataframe.from_dict(mydict).to_excel(writer, sheet_name=metric)
            
