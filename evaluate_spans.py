@@ -57,7 +57,7 @@ if __name__ == "__main__":
     results = format_output_table(class_scores, False)[1]
     row = [args.seed]
     for result in results:
-        row.extend(str(result[1]), str(result[2]), str(result[3]))
+        row.extend([str(result[1]), str(result[2]), str(result[3])])
     write_to_csv([row])
     """
     print(class_scores.precision)
