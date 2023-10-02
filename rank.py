@@ -40,10 +40,10 @@ for file in files:
         test[metric][model]["recall"] = r
         test[metric][model]["f1"] = f
 for metric,model in dev.items():
-    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="a") as writer:
+    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="a", engine='openpyxl') as writer:
         pd.Dataframe.from_dict(mydict).to_excel(writer, sheet_name=metric)
         
 for metric,model in test.items():
-    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx", mode="a") as writer:
+    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx", mode="a", engine='openpyxl') as writer:
         pd.Dataframe.from_dict(mydict).to_excel(writer, sheet_name=metric)
            
