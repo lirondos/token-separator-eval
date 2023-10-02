@@ -40,5 +40,5 @@ for split, metric in dev.items():
         mydic["recall"] = r
         mydic["f1"] = f
     with pd.ExcelWriter("dev.xlsx", engine="openpyxl", mode="a") as writer:
-        pd.Dataframe.from_dict(mydict).to_excel(writer, sheet_name=metric))
+        pd.Dataframe.from_dict(mydict).to_excel(writer, sheet_name=metric)
            
