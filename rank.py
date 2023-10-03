@@ -4,7 +4,11 @@ import json
 import csv
 import pandas as pd
 from collections import defaultdict
- 
+from openpyxl import Workbook
+
+
+EXCEL_DEV = "/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx"
+EXCEL_TEST = "/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx"
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--folder", help="path to folder with evaluation", type=str)
@@ -13,8 +17,18 @@ parser.add_argument("--folder", help="path to folder with evaluation", type=str)
                     
 args = parser.parse_args()
 
+wb_dev = Workbook()
+wb_test = Workbook()
+
+wb_test.save(EXCEL_TEST)
+wb_dev.save(EXCEL_DEV)
+
+
+
 dev = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: None)))
 test = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: None)))
+
+
 
 files = Path(args.folder).glob('*')
 for file in files:
@@ -42,14 +56,14 @@ for file in files:
 for metric,model in dev.items():
     print(metric)
     print(dict(model))
-    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="a", engine='openpyxl') as writer:
+    with pd.ExcelWriter(EXCEL_DEV, mode="a", engine='openpyxl') as writer:
         df = pd.DataFrame.from_dict(dict(model)).transpose()
         df.to_excel(writer, sheet_name=metric)
         
 for metric,model in test.items():
     print(metric)
     print(dict(model))
-    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx", mode="a", engine='openpyxl') as writer:
+    with pd.ExcelWriter(EXCEL_TEST, mode="a", engine='openpyxl') as writer:
         df = pd.DataFrame.from_dict(dict(model)).transpose()
         df.to_excel(writer, sheet_name=metric)
            
