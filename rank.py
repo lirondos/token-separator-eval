@@ -42,14 +42,14 @@ for file in files:
 for metric,model in dev.items():
     print(metric)
     print(dict(model))
-    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="w", engine='openpyxl') as writer:
+    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="a", engine='openpyxl') as writer:
         df = pd.DataFrame.from_dict(dict(model)).transpose()
         df.to_excel(writer, sheet_name=metric)
         
 for metric,model in test.items():
     print(metric)
     print(dict(model))
-    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx", mode="w", engine='openpyxl') as writer:
+    with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx", mode="a", engine='openpyxl') as writer:
         df = pd.DataFrame.from_dict(dict(model)).transpose()
         df.to_excel(writer, sheet_name=metric)
            
