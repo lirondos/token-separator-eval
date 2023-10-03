@@ -26,11 +26,11 @@ for file in files:
     if "agnostic" in metric:
         p = df["PRECISION_ENT"].mean()
         r = df["RECALL_ENT"].mean()
-        f = df["RECALL_ENT"].mean()
+        f = df["F1_ENT"].mean()
     else:
         p = df["PRECISION_ALL"].mean()
         r = df["RECALL_ALL"].mean()
-        f = df["RECALL_ALL"].mean()
+        f = df["F1_ALL"].mean()
     if split == "dev":
         dev[metric][model]["precision"] = p
         dev[metric][model]["recall"] = r
@@ -40,12 +40,12 @@ for file in files:
         test[metric][model]["recall"] = r
         test[metric][model]["f1"] = f
 for metric,model in dev.items():
-    print(metric)
-    print(model)
+    print(dict(metric))
+    print(dict(model))
     with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="a", engine='openpyxl') as writer:
-        pd.DataFrame.from_dict(metric).to_excel(writer, sheet_name=metric)
+        pd.DataFrame.from_dict(dict(metric)).to_excel(writer, sheet_name=metric)
         
 for metric,model in test.items():
     with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/test.xlsx", mode="a", engine='openpyxl') as writer:
-        pd.DataFrame.from_dict(metric).to_excel(writer, sheet_name=metric)
+        pd.DataFrame.from_dict(dict(metric)).to_excel(writer, sheet_name=metric)
            
