@@ -40,8 +40,8 @@ for file in files:
         test[metric][model]["recall"] = r
         test[metric][model]["f1"] = f
 for metric,model in dev.items():
-    print(dict(metric))
-    print(dict(model))
+    print(metric)
+    print(model)
     with pd.ExcelWriter("/home/ealvarezmellado/lrec2024/token-separator-eval/dev.xlsx", mode="a", engine='openpyxl') as writer:
         pd.DataFrame.from_dict(dict(metric)).to_excel(writer, sheet_name=metric)
         
