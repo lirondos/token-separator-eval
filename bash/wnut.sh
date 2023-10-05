@@ -40,28 +40,38 @@ export PREDICTED_SPANS_TEST="$EVALUATION_DIR"/predictions_conll_test.txt
 export PREDICTED_SPANS_AGNOSTIC_TEST="$EVALUATION_DIR"/predictions_conll_agnostic_test.txt
 export PREDICTED_TS_TEST="$EVALUATION_DIR"/predictions_conll_bar_test.txt
 
+
+echo "TRAINED W/O BARS: SPANS"
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_DEV --predicted $PREDICTED_SPANS_DEV --seed $run --csv $CSV_SPAN_DEV
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_TEST --predicted $PREDICTED_SPANS_TEST --seed $run --csv $CSV_SPAN_TEST
 
 # TS evaluation
+echo "TRAINED W/O BARS: TS"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_DEV --seed $run 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TEST --seed $run 
 
 # TS evaluation only tokens
+echo "TRAINED W/O BARS: TS ONLY TOKENS"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_TOK_DEV --seed $run --only_tokens 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TOK_TEST --seed $run --only_tokens 
 
 # AGNOSTIC
 
 # Span evaluation
+echo "TRAINED W/O BARS: SPANS AGNOSTIC"
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_AGNOSTIC_DEV --predicted $PREDICTED_SPANS_AGNOSTIC_DEV --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_AGNOSTIC_TEST --predicted $PREDICTED_SPANS_AGNOSTIC_TEST --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
+echo "TRAINED W/O BARS: TS AGNOSTIC"
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TEST --seed $run --collapse_entities 
 
 # TS evaluation only tokens
+echo "TRAINED W/O BARS: TS ONLY TOKENS AGNOSTIC"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_TOK_DEV --seed $run --only_tokens --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TOK_TEST --seed $run --only_tokens --collapse_entities   
 
@@ -101,27 +111,39 @@ export PREDICTED_SPANS_TEST="$EVALUATION_DIR"/predictions_conll_test.txt
 export PREDICTED_SPANS_AGNOSTIC_TEST="$EVALUATION_DIR"/predictions_conll_agnostic_test.txt
 export PREDICTED_TS_TEST="$EVALUATION_DIR"/predictions_conll_bar_test.txt
 
+echo "TRAINED BARS: SPANS"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_DEV --predicted $PREDICTED_SPANS_DEV --seed $run --csv $CSV_SPAN_DEV
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_TEST --predicted $PREDICTED_SPANS_TEST --seed $run --csv $CSV_SPAN_TEST
 
 # TS evaluation
+echo "TRAINED BARS: TS"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_DEV --seed $run 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TEST --seed $run 
 
 # TS evaluation only tokens
+echo "TRAINED BARS: TS ONLY TOKENS"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_TOK_DEV --seed $run --only_tokens 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TOK_TEST --seed $run --only_tokens 
 
 # AGNOSTIC
 
 # Span evaluation
+echo "TRAINED BARS: SPANS AGNOSTIC"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_AGNOSTIC_DEV --predicted $PREDICTED_SPANS_AGNOSTIC_DEV --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
 python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_AGNOSTIC_TEST --predicted $PREDICTED_SPANS_AGNOSTIC_TEST --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
+echo "TRAINED BARS: TS AGNOSTIC"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TEST --seed $run --collapse_entities 
 
 # TS evaluation only tokens
+echo "TRAINED BARS: TS ONLY TOKENS AGNOSTIC"
+
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_TOK_DEV --seed $run --only_tokens --collapse_entities 
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TOK_TEST --seed $run --only_tokens --collapse_entities   
