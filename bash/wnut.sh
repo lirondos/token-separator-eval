@@ -2,6 +2,7 @@
 source /home/ealvarezmellado/miniconda3/etc/profile.d/conda.sh
 conda activate lrec2024
 
+export SEED=0
 export RESULTS_DIR=/home/ealvarezmellado/lrec2024/token-separator-eval/wnut_17_conll/results
 mkdir $RESULTS_DIR
 
