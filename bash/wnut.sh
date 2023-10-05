@@ -48,8 +48,8 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TEST --seed $run 
 
 # TS evaluation only tokens
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_DEV_TS --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_TOK_DEV --seed $run --only_tokens 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TOK_TEST --seed $run --only_tokens 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_TOK_DEV --seed $run --only_tokens 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_TOK_TEST --seed $run --only_tokens 
 
 # AGNOSTIC
 
@@ -75,18 +75,18 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 # Evaluation trained with bars
 
 export RESULTS_DIR=/home/ealvarezmellado/lrec2024/token-separator-eval/wnut_17_conll/results
-export CSV_SPAN_DEV="$RESULTS_DIR"/span_dev_bar.csv
-export CSV_SPAN_TEST="$RESULTS_DIR"/span_test_bar.csv
-export CSV_SPAN_AGNOSTIC_DEV="$RESULTS_DIR"/span_agnostic_dev_bar.csv
-export CSV_SPAN_AGNOSTIC_TEST="$RESULTS_DIR"/span_agnostic_test_bar.csv
-export CSV_TS_DEV="$RESULTS_DIR"/ts_dev_bar.csv
-export CSV_TS_TEST="$RESULTS_DIR"/ts_test_bar.csv
-export CSV_TS_TOK_DEV="$RESULTS_DIR"/ts_tok_dev_bar.csv
-export CSV_TS_TOK_TEST="$RESULTS_DIR"/ts_tok_test_bar.csv
-export CSV_TS_AGNOSTIC_DEV="$RESULTS_DIR"/ts_agnostic_dev_bar.csv
-export CSV_TS_AGNOSTIC_TEST="$RESULTS_DIR"/ts_agnostic_test_bar.csv
-export CSV_TS_AGNOSTIC_TOK_DEV="$RESULTS_DIR"/ts_agnostic_tok_dev_bar.csv
-export CSV_TS_AGNOSTIC_TOK_TEST="$RESULTS_DIR"/ts_agnostic_tok_test_bar.csv
+export CSV_SPAN_DEV="$RESULTS_DIR"/bar_span_dev.csv
+export CSV_SPAN_TEST="$RESULTS_DIR"/bar_span_test.csv
+export CSV_SPAN_AGNOSTIC_DEV="$RESULTS_DIR"/bar_span_agnostic_dev.csv
+export CSV_SPAN_AGNOSTIC_TEST="$RESULTS_DIR"/bar_span_agnostic_test.csv
+export CSV_TS_DEV="$RESULTS_DIR"/bar_ts_dev.csv
+export CSV_TS_TEST="$RESULTS_DIR"/bar_ts_test.csv
+export CSV_TS_TOK_DEV="$RESULTS_DIR"/bar_ts_tok_dev.csv
+export CSV_TS_TOK_TEST="$RESULTS_DIR"/bar_ts_tok_test.csv
+export CSV_TS_AGNOSTIC_DEV="$RESULTS_DIR"/bar_ts_agnostic_dev.csv
+export CSV_TS_AGNOSTIC_TEST="$RESULTS_DIR"/bar_ts_agnostic_test.csv
+export CSV_TS_AGNOSTIC_TOK_DEV="$RESULTS_DIR"/bar_ts_agnostic_tok_dev.csv
+export CSV_TS_AGNOSTIC_TOK_TEST="$RESULTS_DIR"/bar_ts_agnostic_tok_test.csv
 
 
 
