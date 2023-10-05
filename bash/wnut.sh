@@ -54,8 +54,8 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predic
 # AGNOSTIC
 
 # Span evaluation
-python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_DEV_AGNOSTIC --predicted $PREDICTED_DEV_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
-python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_TEST_AGNOSTIC --predicted $PREDICTED_TEST_AGNOSTIC --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_AGNOSTIC_DEV --predicted $PREDICTED_SPANS_AGNOSTIC_DEV --seed $run --csv $CSV_SPAN_AGNOSTIC_DEV
+python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --reference $GOLDSTANDARD_SPANS_AGNOSTIC_TEST --predicted $PREDICTED_SPANS_AGNOSTIC_TEST --seed $run --csv $CSV_SPAN_AGNOSTIC_TEST
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
