@@ -59,11 +59,11 @@ python /home/ealvarezmellado/lrec2024/token-separator-eval/evaluate_spans.py --r
 
 # TS evaluation
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_DEV --seed $run --collapse_entities 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TEST --seed $run --collapse_entities 
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TEST --seed $run --collapse_entities 
 
 # TS evaluation only tokens
 python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_DEV --goldstandard $GOLDSTANDARD_TS_DEV --csv $CSV_TS_AGNOSTIC_TOK_DEV --seed $run --only_tokens --collapse_entities 
-python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TEST_TS --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TOK_TEST --seed $run --only_tokens --collapse_entities   
+python /home/ealvarezmellado/lrec2024/token-separator-eval/ts_scorer.py --predicted $PREDICTED_TS_TEST --goldstandard $GOLDSTANDARD_TS_TEST --csv $CSV_TS_AGNOSTIC_TOK_TEST --seed $run --only_tokens --collapse_entities   
 
 #######################################################################
 #######################################################################
