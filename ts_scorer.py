@@ -84,6 +84,8 @@ fn = 0
 
 print(counts)
 
+"""
+# Uncomment if anglicisms
 if args.collapse_entities:
     p, r, f1 = get_p_r_f(counts["ENT"]["tp"],counts["ENT"]["fp"],counts["ENT"]["fn"])
     row = [[args.seed, p, r, f1]]
@@ -98,6 +100,17 @@ else:
     p_all, r_all, f1_all = get_p_r_f(tp, fp, fn)
 
     row = [[args.seed, p_all, r_all, f1_all, p_eng, r_eng, f1_eng, p_other, r_other, f1_other]]
+"""
+
+# Uncomment if WNUT17
+for k, v in counts.items():
+        tp =v["tp"] + tp
+        fp = v["fp"] + fp
+        fn = v["fn"] + fn
+        p_all, r_all, f1_all = get_p_r_f(tp, fp, fn)
+
+row = [[args.seed, p_all, r_all, f1_all]]
+
 write_to_csv(row)    
 
 
