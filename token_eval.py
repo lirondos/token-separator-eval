@@ -62,7 +62,7 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
                 print(args.predicted)
                 break
             if args.collapse_entities: # lenient version
-                if predicted_tag != "O" and goldstandard_tag != "O" and predicted_tag.split("-")[0] == goldstandard_tag.split("-"): # they match in the lenient version
+                if predicted_tag != "O" and goldstandard_tag != "O" and predicted_tag.split("-")[0] == goldstandard_tag.split("-")[0]: # they match in the lenient version
                     prefix = predicted_tag.split("-")[0]
                     counts[prefix+"-ENT"]["tp"] = counts[prefix+"-ENT"]["tp"] + 1
                 else: # they do not match
