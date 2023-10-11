@@ -46,10 +46,12 @@ counts = defaultdict(lambda: defaultdict(int))
 to_ts = []
 
 with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard, "r", encoding="utf-8") as goldstandard_file:
+    predicted_file_it = iter(predicted_file)
+    goldstandard_file_it = iter(goldstandard_file)
     #for i, (predicted_line, goldstandard_line) in enumerate(zip(predicted_file, goldstandard_file)):
-    for i, (predicted_line,goldstandard_line) in enumerate(itertools.izip(predicted_file, goldstandard_file)):
+    for i, (predicted_line,goldstandard_line) in enumerate(itertools.izip(predicted_file_it, goldstandard_file_it)):
         if not predicted_line.strip() and goldstandard_line.strip():
-            predicted_line = next(predicted_file)
+            predicted_line = next(predicted_file_it)
         if predicted_line.strip() and goldstandard_line.strip(): # lines are not blank
             predicted_token, predicted_tag = predicted_line.split()
             goldstandard_token, goldstandard_tag = goldstandard_line.split()
