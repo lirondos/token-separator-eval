@@ -3,7 +3,6 @@ from pathlib import Path
 import json
 import csv
 from collections import defaultdict
-import itertools
 
 def write_to_csv(rows):
     # Workbook is created
@@ -49,7 +48,7 @@ with open(predicted, "r", encoding="utf-8") as predicted_file, open(goldstandard
     predicted_file_it = iter(predicted_file)
     goldstandard_file_it = iter(goldstandard_file)
     #for i, (predicted_line, goldstandard_line) in enumerate(zip(predicted_file, goldstandard_file)):
-    for i, (predicted_line,goldstandard_line) in enumerate(itertools.izip(predicted_file_it, goldstandard_file_it)):
+    for i, (predicted_line,goldstandard_line) in enumerate(zip(predicted_file_it, goldstandard_file_it)):
         if not predicted_line.strip() and goldstandard_line.strip():
             predicted_line = next(predicted_file_it)
         if predicted_line.strip() and goldstandard_line.strip(): # lines are not blank
